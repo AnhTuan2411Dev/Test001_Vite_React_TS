@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.svg';
 import courseImage from '../assets/course_1.png';
 import ratingStar from '../assets/rating_star.svg';
@@ -14,6 +14,7 @@ import Header from '../components/Header'; // Import the Header component
 
 const DetailPage: React.FC = () => {
   const [openSections, setOpenSections] = useState<string[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -89,12 +90,12 @@ const DetailPage: React.FC = () => {
       <main className="container mx-auto px-8 py-12 flex flex-col lg:flex-row gap-12" >
         {/* Left Section - Course Details */}
         <div className="lg:w-2/3" >
-          <Link to="/" className="text-blue-600 hover:underline flex items-center mb-4">
+          <button onClick={() => navigate(-1)} className="text-blue-600 hover:underline flex items-center mb-4 bg-transparent border-none cursor-pointer p-0">
             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
             </svg>
-            Quay lại Trang chủ
-          </Link>
+            Quay lại
+          </button>
           <h1 className="text-5xl font-bold mb-4 leading-tight" >
             Xây dựng ứng dụng SaaS chuyển văn bản thành hình ảnh bằng React JS
           </h1>
