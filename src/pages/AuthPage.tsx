@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { assets } from '../assets/assets';
+import '../css/AuthPage.css';
 
 const AuthPage: React.FC = () => {
   const location = useLocation();
@@ -55,6 +56,7 @@ const AuthPage: React.FC = () => {
   }, [isLoginActive]); // Re-run effect when tab changes to re-attach listener if needed
 
   useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top on component mount
     if (location.state?.isLoginActive !== undefined) {
       setIsLoginActive(location.state.isLoginActive);
     }
