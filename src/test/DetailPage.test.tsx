@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import DetailPage from './DetailPage';
+import DetailPage from '../pages/DetailPage';
 import { describe, it, expect } from 'vitest';
 
 describe('DetailPage', () => {

@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+.bg-gradient-edemy {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+.text-edemy {
+    color: #667eea;
+}
+.border-edemy {
+    border-color: #667eea;
+}
+.bg-edemy {
+    background-color: #667eea;
+}
+.hover-bg-edemy:hover {
+    background-color: #5a6fd8;
+}
+.input-focus:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}

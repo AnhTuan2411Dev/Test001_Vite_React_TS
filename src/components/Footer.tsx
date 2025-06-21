@@ -8,38 +8,37 @@ const Footer: React.FC = () => {
         <div>
           <img src={assets.logo_dark} alt="Edemy Logo" className="h-8 mb-4" />
           <p className="text-sm leading-relaxed">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text.
+            Lorem Ipsum chỉ đơn giản là văn bản giả của ngành in ấn và sắp chữ. Lorem Ipsum đã trở thành văn bản giả tiêu chuẩn của ngành.
           </p>
         </div>
         <div>
-          <h3 className="text-white font-semibold text-lg mb-4">Company</h3>
+          <h3 className="text-white font-semibold text-lg mb-4">Công ty</h3>
           <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:text-white">Home</a></li>
-            <li><a href="#" className="hover:text-white">About us</a></li>
-            <li><a href="#" className="hover:text-white">Contact us</a></li>
-            <li><a href="#" className="hover:text-white">Privacy policy</a></li>
+            <li><a href="#" className="hover:text-white">Trang chủ</a></li>
+            <li><a href="#" className="hover:text-white">Về chúng tôi</a></li>
+            <li><a href="#" className="hover:text-white">Liên hệ</a></li>
+            <li><a href="#" className="hover:text-white">Chính sách bảo mật</a></li>
           </ul>
         </div>
         <div>
-          <h3 className="text-white font-semibold text-lg mb-4">Subscribe to our newsletter</h3>
+          <h3 className="text-white font-semibold text-lg mb-4">Đăng ký nhận bản tin của chúng tôi</h3>
           <p className="text-sm mb-4">
-            The latest news, articles, and resources, sent to your inbox weekly.
+            Tin tức, bài viết và tài nguyên mới nhất, được gửi đến hộp thư đến của bạn hàng tuần.
           </p>
           <div className="flex">
             <input
               type="email"
-              placeholder="Enter your email"
+              placeholder="Nhập email của bạn"
               className="w-full p-3 rounded-l-md bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
             />
             <button className="bg-blue-600 text-white px-6 py-3 rounded-r-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-              Subscribe
+              Đăng ký
             </button>
           </div>
         </div>
       </div>
       <div className="container mx-auto px-4 mt-12 pt-8 border-t border-gray-700 text-center text-sm">
-        <p>Copyright 2024 © Edemy. All Right Reserved.</p>
+        <p>Bản quyền 2024 © Edemy. Đã đăng ký bản quyền.</p>
       </div>
     </footer>
   );
