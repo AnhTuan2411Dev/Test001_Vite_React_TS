@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer'; // Import the Footer component
 import Header from '../components/Header'; // Import the Header component
-import { assets } from '../assets/assets';
+import { assets, dummyEducatorData, dummyCourses } from '../assets/assets';
+import CourseCard from '../components/CourseCard';
 
 const HomePage: React.FC = () => {
   useEffect(() => {
@@ -45,11 +46,11 @@ const HomePage: React.FC = () => {
         <p className="text-gray-600 mb-8">Được tin cậy bởi học viên từ</p>
         <div className="flex justify-center items-center space-x-12">
           {/* Company Logos Placeholders */}
-          <img src="https://via.placeholder.com/100x40?text=Microsoft" alt="Microsoft" className="h-10" />
-          <img src="https://via.placeholder.com/100x40?text=Walmart" alt="Walmart" className="h-10" />
-          <img src="https://via.placeholder.com/100x40?text=Accenture" alt="Accenture" className="h-10" />
-          <img src="https://via.placeholder.com/100x40?text=Adobe" alt="Adobe" className="h-10" />
-          <img src="https://via.placeholder.com/100x40?text=PayPal" alt="PayPal" className="h-10" />
+          <img src={assets.microsoft_logo} alt="Microsoft" className="h-10" />
+          <img src={assets.walmart_logo} alt="Walmart" className="h-10" />
+          <img src={assets.accenture_logo} alt="Accenture" className="h-10" />
+          <img src={assets.adobe_logo} alt="Adobe" className="h-10" />
+          <img src={assets.paypal_logo} alt="PayPal" className="h-10" />
         </div>
       </section>
 
@@ -61,66 +62,17 @@ const HomePage: React.FC = () => {
             Khám phá các khóa học được đánh giá cao nhất của chúng tôi trên nhiều danh mục khác nhau. Từ lập trình và thiết kế đến kinh doanh và sức khỏe, các khóa học của chúng tôi được tạo ra để mang lại kết quả.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Course Card 1 */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img src="https://via.placeholder.com/400x250?text=Course+Image+1" alt="Course" className="w-full h-48 object-cover" />
-              <div className="p-5">
-                <Link to="/detail"><h3 className="font-semibold text-lg text-gray-800 mb-2">Xây dựng ứng dụng SaaS chuyển văn bản thành hình ảnh bằng React JS</h3></Link>
-                <p className="text-gray-600 text-sm mb-3">Richard James</p>
-                <div className="flex items-center mb-3">
-                  <span className="text-yellow-500 flex">
-                    {'★'.repeat(4)}{'☆'.repeat(1)}
-                  </span>
-                  <span className="text-gray-500 text-sm ml-2">4.5 (122)</span>
-                </div>
-                <p className="text-gray-800 font-bold text-lg">$10.99</p>
-              </div>
-            </div>
-            {/* Course Card 2 */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img src="https://via.placeholder.com/400x250?text=Course+Image+2" alt="Course" className="w-full h-48 object-cover" />
-              <div className="p-5">
-                <Link to="/detail"><h3 className="font-semibold text-lg text-gray-800 mb-2">Xây dựng ứng dụng SaaS xóa nền AI bằng React JS</h3></Link>
-                <p className="text-gray-600 text-sm mb-3">Richard James</p>
-                <div className="flex items-center mb-3">
-                  <span className="text-yellow-500 flex">
-                    {'★'.repeat(4)}{'☆'.repeat(1)}
-                  </span>
-                  <span className="text-gray-500 text-sm ml-2">4.5 (122)</span>
-                </div>
-                <p className="text-gray-800 font-bold text-lg">$10.99</p>
-              </div>
-            </div>
-            {/* Course Card 3 */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img src="https://via.placeholder.com/400x250?text=Course+Image+3" alt="Course" className="w-full h-48 object-cover" />
-              <div className="p-5">
-                <Link to="/detail"><h3 className="font-semibold text-lg text-gray-800 mb-2">Khóa học React Router hoàn chỉnh trong một video</h3></Link>
-                <p className="text-gray-600 text-sm mb-3">Richard James</p>
-                <div className="flex items-center mb-3">
-                  <span className="text-yellow-500 flex">
-                    {'★'.repeat(4)}{'☆'.repeat(1)}
-                  </span>
-                  <span className="text-gray-500 text-sm ml-2">4.5 (122)</span>
-                </div>
-                <p className="text-gray-800 font-bold text-lg">$10.99</p>
-              </div>
-            </div>
-            {/* Course Card 4 */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img src="https://via.placeholder.com/400x250?text=Course+Image+4" alt="Course" className="w-full h-48 object-cover" />
-              <div className="p-5">
-                <Link to="/detail"><h3 className="font-semibold text-lg text-gray-800 mb-2">Xây dựng ứng dụng E-Commerce Full Stack bằng React JS</h3></Link>
-                <p className="text-gray-600 text-sm mb-3">Richard James</p>
-                <div className="flex items-center mb-3">
-                  <span className="text-yellow-500 flex">
-                    {'★'.repeat(4)}{'☆'.repeat(1)}
-                  </span>
-                  <span className="text-gray-500 text-sm ml-2">4.5 (122)</span>
-                </div>
-                <p className="text-gray-800 font-bold text-lg">$10.99</p>
-              </div>
-            </div>
+            {dummyCourses.slice(0, 4).map((course, index) => (
+              <CourseCard
+                key={index}
+                image={course.courseThumbnail}
+                title={course.courseTitle}
+                author={dummyEducatorData.name}
+                rating={course.courseRatings.length > 0 ? course.courseRatings.reduce((acc, curr) => acc + curr.rating, 0) / course.courseRatings.length : 0}
+                reviews={course.enrolledStudents.length}
+                price={`$${course.coursePrice.toFixed(2)}`}
+              />
+            ))}
           </div>
           <div className="text-center mt-12">
             <Link to="/courses" className="border border-gray-300 text-gray-700 px-6 py-3 rounded-md hover:bg-gray-100">Hiển thị tất cả khóa học</Link>
@@ -138,7 +90,7 @@ const HomePage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Testimonial Card 1 */}
             <div className="bg-gray-50 rounded-lg shadow-sm p-6 text-center">
-              <img src="https://via.placeholder.com/80x80?text=Avatar" alt="Donald Jackman" className="w-20 h-20 rounded-full mx-auto mb-4" />
+              <img src={assets.profile_img_1} alt="Donald Jackman" className="w-20 h-20 rounded-full mx-auto mb-4" />
               <h4 className="font-semibold text-gray-900">Donald Jackman</h4>
               <p className="text-gray-600 text-sm mb-3">Kỹ sư phần mềm 1 @ Amazon</p>
               <div className="flex justify-center items-center mb-4">
@@ -153,7 +105,7 @@ const HomePage: React.FC = () => {
             </div>
             {/* Testimonial Card 2 */}
             <div className="bg-gray-50 rounded-lg shadow-sm p-6 text-center">
-              <img src="https://via.placeholder.com/80x80?text=Avatar" alt="Richard Nelson" className="w-20 h-20 rounded-full mx-auto mb-4" />
+              <img src={assets.profile_img_2} alt="Richard Nelson" className="w-20 h-20 rounded-full mx-auto mb-4" />
               <h4 className="font-semibold text-gray-900">Richard Nelson</h4>
               <p className="text-gray-600 text-sm mb-3">Kỹ sư phần mềm 2 @ Samsung</p>
               <div className="flex justify-center items-center mb-4">
@@ -168,7 +120,7 @@ const HomePage: React.FC = () => {
             </div>
             {/* Testimonial Card 3 */}
             <div className="bg-gray-50 rounded-lg shadow-sm p-6 text-center">
-              <img src="https://via.placeholder.com/80x80?text=Avatar" alt="James Washington" className="w-20 h-20 rounded-full mx-auto mb-4" />
+              <img src={assets.profile_img_3} alt="James Washington" className="w-20 h-20 rounded-full mx-auto mb-4" />
               <h4 className="font-semibold text-gray-900">James Washington</h4>
               <p className="text-gray-600 text-sm mb-3">Kỹ sư phần mềm 2 @ Google</p>
               <div className="flex justify-center items-center mb-4">
