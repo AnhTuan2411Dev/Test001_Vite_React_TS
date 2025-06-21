@@ -16,7 +16,7 @@ const HomePage: React.FC = () => {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-b from-blue-50 to-white py-20 text-center">
         <div className="max-w-4xl mx-auto px-4">
-          <h1 className="text-5xl font-extrabold text-gray-900 leading-tight mb-4">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
             Trao quyền cho tương lai của bạn với các khóa học được thiết kế để <span className="text-blue-600 relative">phù hợp với lựa chọn của bạn.
               <span className="absolute bottom-0 left-0 w-full h-1 bg-blue-300 transform -skew-x-12"></span>
             </span>
@@ -24,7 +24,7 @@ const HomePage: React.FC = () => {
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
             Chúng tôi tập hợp các giảng viên đẳng cấp thế giới, nội dung tương tác và một cộng đồng hỗ trợ để giúp bạn đạt được các mục tiêu cá nhân và nghề nghiệp của mình.
           </p>
-          <div className="flex justify-center items-center space-x-4">
+          <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
             <div className="relative flex items-center w-full max-w-md">
               <svg className="absolute left-3 text-gray-400" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -35,21 +35,21 @@ const HomePage: React.FC = () => {
                 className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
-            <button className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700">Tìm kiếm</button>
+            <button className="w-full md:w-auto bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700">Tìm kiếm</button>
           </div>
         </div>
       </section>
 
       {/* Trusted by Learners Section */}
-      <section className="py-16 bg-white text-center">
+      <section className="py-16 bg-white text-center px-4">
         <p className="text-gray-600 mb-8">Được tin cậy bởi học viên từ</p>
-        <div className="flex justify-center items-center space-x-12">
+        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
           {/* Company Logos Placeholders */}
-          <img src={assets.microsoft_logo} alt="Microsoft" className="h-10" />
-          <img src={assets.walmart_logo} alt="Walmart" className="h-10" />
-          <img src={assets.accenture_logo} alt="Accenture" className="h-10" />
-          <img src={assets.adobe_logo} alt="Adobe" className="h-10" />
-          <img src={assets.paypal_logo} alt="PayPal" className="h-10" />
+          <img src={assets.microsoft_logo} alt="Microsoft" className="h-10 w-auto max-w-full" />
+          <img src={assets.walmart_logo} alt="Walmart" className="h-10 w-auto max-w-full" />
+          <img src={assets.accenture_logo} alt="Accenture" className="h-10 w-auto max-w-full" />
+          <img src={assets.adobe_logo} alt="Adobe" className="h-10 w-auto max-w-full" />
+          <img src={assets.paypal_logo} alt="PayPal" className="h-10 w-auto max-w-full" />
         </div>
       </section>
 
@@ -60,7 +60,7 @@ const HomePage: React.FC = () => {
           <p className="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
             Khám phá các khóa học được đánh giá cao nhất của chúng tôi trên nhiều danh mục khác nhau. Từ lập trình và thiết kế đến kinh doanh và sức khỏe, các khóa học của chúng tôi được tạo ra để mang lại kết quả.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
             {/* Course Card 1 */}
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <img src={assets.course_1_thumbnail} alt="Course" className="w-full h-48 object-cover" />
@@ -135,7 +135,7 @@ const HomePage: React.FC = () => {
           <p className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
             Nghe từ các học viên của chúng tôi khi họ chia sẻ hành trình chuyển đổi, thành công và cách nền tảng của chúng tôi đã tạo ra sự khác biệt trong cuộc sống của họ.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
             {/* Testimonial Card 1 */}
             <div className="bg-gray-50 rounded-lg shadow-sm p-6 text-center">
               <img src={assets.profile_img_1} alt="Donald Jackman" className="w-20 h-20 rounded-full mx-auto mb-4" />
@@ -192,7 +192,7 @@ const HomePage: React.FC = () => {
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
             Incididunt sint fugiat pariatur consectetur cupidatat consequat aliquip proident excepteur commodo do ea.
           </p>
-          <div className="flex justify-center items-center space-x-4">
+          <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
             <button className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700">Bắt đầu</button>
             <a href="#" className="text-blue-600 flex items-center hover:underline">
               Tìm hiểu thêm
