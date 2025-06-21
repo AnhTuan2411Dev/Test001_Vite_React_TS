@@ -13,7 +13,7 @@ const vitestConfig = defineVitestConfig({
   test: {
     globals: true,
     environment: 'jsdom', // dùng để test DOM
-    setupFiles: './src/setupTests.ts'
+    setupFiles: './src/setupTests.ts',
   }
 })
 
