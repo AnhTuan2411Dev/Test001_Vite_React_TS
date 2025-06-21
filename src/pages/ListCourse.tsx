@@ -2,13 +2,110 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer.tsx';
-import { assets, dummyCourses, dummyEducatorData } from '../assets/assets.js';
-import CourseCard from '../components/CourseCard';
+import { assets } from '../assets/assets.js'; // Assuming assets.js exports an assets object
+
+interface CourseCardProps {
+  image: string;
+  title: string;
+  author: string;
+  rating: number;
+  reviews: number;
+  price: string;
+}
+
+const CourseCard: React.FC<CourseCardProps> = ({ image, title, author, rating, reviews, price }) => {
+  return (
+    <div className="bg-white rounded-lg shadow-md overflow-hidden">
+      <img src={image} alt={title} className="w-full h-48 object-cover" />
+      <div className="p-4">
+        <Link to="/detail"><h3 className="font-semibold text-lg mb-2">{title}</h3></Link>
+        <p className="text-gray-600 text-sm mb-2">{author}</p>
+        <div className="flex items-center mb-2">
+          <span className="text-yellow-500 font-bold mr-1">{rating}</span>
+          <div className="flex">
+            {[...Array(5)].map((_, i) => (
+              <img key={i} src={i < Math.floor(rating) ? assets.star : assets.star_blank} alt="star" className="w-4 h-4" />
+            ))}
+          </div>
+          <span className="text-gray-500 text-sm ml-2">({reviews})</span>
+        </div>
+        <p className="text-gray-800 font-bold text-lg">{price}</p>
+      </div>
+    </div>
+  );
+};
 
 const ListCourse: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const courses = [
+    {
+      image: assets.course_1_thumbnail,
+      title: "Xây dựng ứng dụng SaaS chuyển văn bản thành hình ảnh bằng React JS",
+      author: "Richard James",
+      rating: 4.5,
+      reviews: 122,
+      price: "$10.99",
+    },
+    {
+      image: assets.course_2_thumbnail,
+      title: "Xây dựng ứng dụng SaaS xóa nền AI bằng React JS",
+      author: "Richard James",
+      rating: 4.5,
+      reviews: 122,
+      price: "$10.99",
+    },
+    {
+      image: assets.course_3_thumbnail,
+      title: "Khóa học React Router hoàn chỉnh trong một video",
+      author: "Richard James",
+      rating: 4.5,
+      reviews: 122,
+      price: "$10.99",
+    },
+    {
+      image: assets.course_4_thumbnail,
+      title: "Xây dựng ứng dụng E-Commerce Full Stack bằng React JS",
+      author: "Richard James",
+      rating: 4.5,
+      reviews: 122,
+      price: "$10.99",
+    },
+    {
+      image: assets.course_1_thumbnail,
+      title: "Xây dựng ứng dụng SaaS chuyển văn bản thành hình ảnh bằng React JS",
+      author: "Richard James",
+      rating: 4.5,
+      reviews: 122,
+      price: "$10.99",
+    },
+    {
+      image: assets.course_2_thumbnail,
+      title: "Xây dựng ứng dụng SaaS xóa nền AI bằng React JS",
+      author: "Richard James",
+      rating: 4.5,
+      reviews: 122,
+      price: "$10.99",
+    },
+    {
+      image: assets.course_3_thumbnail,
+      title: "Khóa học React Router hoàn chỉnh trong một video",
+      author: "Richard James",
+      rating: 4.5,
+      reviews: 122,
+      price: "$10.99",
+    },
+    {
+      image: assets.course_4_thumbnail,
+      title: "Xây dựng ứng dụng E-Commerce Full Stack bằng React JS",
+      author: "Richard James",
+      rating: 4.5,
+      reviews: 122,
+      price: "$10.99",
+    },
+  ];
 
   return (
     <div className="flex flex-col min-h-screen pt-16"> {/* Added pt-16 to offset fixed header */}
@@ -32,16 +129,8 @@ const ListCourse: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {dummyCourses.map((course, index) => (
-            <CourseCard
-              key={index}
-              image={course.courseThumbnail}
-              title={course.courseTitle}
-              author={dummyEducatorData.name}
-              rating={course.courseRatings.length > 0 ? course.courseRatings.reduce((acc, curr) => acc + curr.rating, 0) / course.courseRatings.length : 0}
-              reviews={course.enrolledStudents.length}
-              price={`$${course.coursePrice.toFixed(2)}`}
-            />
+          {courses.map((course, index) => (
+            <CourseCard key={index} {...course} />
           ))}
         </div>
 
